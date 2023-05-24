@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B1n2 JavaScript Activity - Currency Conversion</title>
+</head>
+<body>
+    <script>
+        //array for previous conversion
+        var arrayResult = [];
+
+        function Convertion(){
+            var euro = 0.017;
+            var hkDollar = 0.14;
+            var cDollar = 0.024;
+            var peso = document.getElementById("peso").value;
+            var previous ='';
+            var result = 0;
+            var sign = "";
+            var resultString1 ='';
+            var resultString2 ='';
+
+            //condition
+            if (currency.value == 'Euro'){
+                result = peso * euro;
+                sign ="€/Euro";
+            } else if(currency.value == 'Hong Kong'){
+                result = peso * hkDollar;
+                sign ="HK$";
+            } else{
+                result = peso * cDollar;
+                sign ="Can$";
+            }   
+
+            //result
+            resultString1 = `Foreign Currency Conversion Result:
+            Selected Foreign Currency: ${sign} `; 
+            resultString2 = `Php ${peso} is equivalent to ${sign} ${result}`;
+            document.getElementById('result1').innerText = resultString1;
+            document.getElementById('result2').innerText = resultString2;
+
+            //insert result to array
+            arrayResult.push(resultString2);
+
+            //display previous conversion
+            for (i=1; i < arrayResult.length; i++){
+			previous = previous + arrayResult[i] + "\n"; 
+		    }
+            document.getElementById('history').innerText ='\n Previous Conversion \n' + previous;
+        }
+    </script>
+    <h1> Activity - Currency Conversion Program by: Roselyn Garcia</h1>
+    <p style="margin-bottom: 0%;">Enter Philippine Peso value to convert: 
+        <span><input type="number" id="peso"></span></p>
+    <p style="margin-bottom: 0%;">Select Foreign Currency to convert: 
+        <span> 
+        <select name="currency" id="currency">
+            <option value="Euro">Euro</option>
+            <option value="Hong Kong">Hong Kong Dollar</option>
+            <option value="Canadian">Canadian Dollar</option>
+        </select>
+        </span>
+    </p> 
+    <br>
+    <button onclick="Convertion()">Process</button>
+    <p id="result1"></p>
+    <b id="result2"> </b>
+    <p id="history"></p>
+    
+</body>
+</html>

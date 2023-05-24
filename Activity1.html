@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Roselyn Garcia</title>
+		<!-- external javascript-->
+		<script type="application/javascript" src="../JAVASCRIPT/JS/Activity1.js"></script>
+	</head>
+	
+	<body>
+	<center>
+		<h1> Roselyn Garcia </h1>
+	
+		<button id = "mybtn" type="button" onclick=mySkillsButton()>Click me to display Skills</button>
+		<div id="skill">
+		</div>
+		<div id="divAddSkill" style="display:none">
+		<!-- internal javascript-->
+		<script>
+		function addSkill(){
+		var txtskill = document.getElementById('txtSkill').value;
+		skills.push(txtskill);
+		mySkillsButton();
+		}
+		</script>
+		<input id="txtSkill"> </input>
+		<button id = "add" onclick = addSkill()> Add Skill </button>
+		</div>
+		<br>
+		<div>
+			<!-- inline javascript-->
+			<button onclick="alert('Watching Anime, Drawing, Playing Guitar and travel')"> Hobbies </button>
+		</div>
+	</body>
+</html>
